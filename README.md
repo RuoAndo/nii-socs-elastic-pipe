@@ -55,8 +55,7 @@ Traffic discrimination (ingoing/outgoing).
 time ./discernCPU $date list-sample
 </pre>
 
-# more list-sample 
-
 <pre>
+# more list-sample 
 192.168.0.0,24
 </pre>
