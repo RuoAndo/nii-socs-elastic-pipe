@@ -21,7 +21,7 @@ Building binaries.
 (do.sh) cd ..
 </pre>
 
-Pagination (dump) with scroll API. 
+# Pagination (dump) with scroll API. 
 
 <pre>
 (do.sh) rm -rf dump.txt
@@ -59,7 +59,7 @@ Splitting dump.
 (do.sh) rm -rf dump.txt
 </pre>
 
-Traffic discrimination (ingoing/outgoing).
+# Traffic discrimination (ingoing/outgoing).
 
 <pre>
 (do.sh) ./discernCPU $date list-sample
