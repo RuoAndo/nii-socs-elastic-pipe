@@ -14,7 +14,7 @@ You can use script (do.sh) with the correct setting user name, password and inde
 12: ./pagination --host=http://USERNAME:PASSWORD@X.X.X.X:9200 --index=INDEX_NAME_"${date}`
 </pre>
 
-First of all, before building. 
+First of all, before running script. 
 <pre>
 # git submodule update --init
 </pre>
