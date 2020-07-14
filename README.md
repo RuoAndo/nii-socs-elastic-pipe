@@ -14,7 +14,9 @@ You can use script (do.sh) with the correct setting user name, password and inde
 12: ./pagination --host=http://USERNAME:PASSWORD@X.X.X.X:9200 --index=INDEX_NAME_"${date}`
 </pre>
 
-First of all, before running script. 
+<hr>
+
+First of all, before running script (building binaries). 
 <pre>
 # git submodule update --init
 </pre>
@@ -85,7 +87,7 @@ xaa.h  xag.h  xam.h  xas.h  xay.h  xbe.h  xbk.h  xbq.h  xbw.h  xcc.h  xci.h  xco
 
 <hr>
 
-Note: traffic discrimination is based on the data format as follows:
+Note: traffic discrimination of step 4 is based on the data format as follows:
 
 <pre>
 # cd src/
