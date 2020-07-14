@@ -15,7 +15,7 @@ Pagination (dump from Elasticsearch).
 # ./pagination --host=http://USERNAME:PASSWORD@X.X.X.X:9200 --index=INDEX_NAME_"${date}`
 </pre>
 
-1. Building binaries.
+1. [do.sh] Building binaries.
 
 <pre>
 # git submodule update --init
@@ -31,7 +31,7 @@ Pagination (dump from Elasticsearch).
 (do.sh) cd ..
 </pre>
 
-2. Pagination (dump) with scroll API. 
+2. [do.sh] Pagination (dump) with scroll API. 
 
 <pre>
 (do.sh) rm -rf dump.txt
@@ -45,7 +45,7 @@ Pagination (dump from Elasticsearch).
 (do.sh) cp dump.txt dump.txt.${date}
 </pre>
 
-3. Splitting dump.
+3. [do.sh] Splitting dump.
 
 <pre>
 (do.sh) date=$(date -d '1 day ago' "+%Y%m%d")
@@ -69,7 +69,7 @@ Pagination (dump from Elasticsearch).
 (do.sh) rm -rf dump.txt
 </pre>
 
-4. Traffic discrimination (ingoing/outgoing).
+4. [do.sh] Traffic discrimination (ingoing/outgoing).
 After step 3, you have directory like: 
 
 <pre>
