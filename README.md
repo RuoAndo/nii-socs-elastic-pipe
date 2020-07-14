@@ -19,6 +19,8 @@ First of all, before running script.
 # git submodule update --init
 </pre>
 
+Script is divided into four steps.
+
 1. [do.sh] Building binaries.
 
 <pre>
@@ -81,11 +83,7 @@ xaa.h  xag.h  xam.h  xas.h  xay.h  xbe.h  xbk.h  xbq.h  xbw.h  xcc.h  xci.h  xco
 (do.sh) ./discernCPU $date list-sample
 </pre>
 
-Sample list file.
-<pre>
-# more list-sample 
-192.168.0.0,24
-</pre>
+<hr>
 
 Note: traffic discrimination is based on the data format as follows:
 
@@ -97,4 +95,10 @@ Note: traffic discrimination is based on the data format as follows:
 "2019/07/02 00:00:19.952","2019/07/02 00:00:19","2019/07/02 00:00:19","841","198.112.80.204","25846","om","205.183.30.17","51321","lT","kFS","XkruUfNU9","mcm","oKEFj","giiOkVuT","8","vwamZWK1vUtsMs2dXAjA2xRCuh","912","198","336","769","278","554","rand-pa1"
 "2019/07/02 00:00:30.870","2019/07/02 00:00:30","2019/07/02 00:00:30","478","174.0.245.225","41214","Xc","41.157.209.123","23907","p9","q40","EwkU6WZvo","laf","fM6ZX","90MTO4d6","5","3jBdNEObCi9QT8EUQw0dKhNSaG","953","917","636","718","142","607","rand-pa1"
 "2019/07/02 00:00:46.949","2019/07/02 00:00:46","2019/07/02 00:00:46","17","255.8.70.117","15918","bj","223.159.139.187","8994","9n","vUu","Ymp8d7N3u","Rqe","9XREA","g5TvA86Z","8","Km9NlKHruyoB4WDO4Nig2eEhaW","157","401","130","109","999","219","rand-pa1"
+</pre>
+
+Sample list file.
+<pre>
+# more list-sample 
+192.168.0.0,24
 </pre>
