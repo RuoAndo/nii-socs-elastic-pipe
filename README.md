@@ -5,14 +5,13 @@
 <li> discernCPU: traffic discrinimation tool (ingoing/outgoing) by IP address<br>
 </ul>
 
-You can use script (do.sh) with the correct setting user name, password and index name of your Elasticserch.
+You can use script (do.sh) with the correct setting user name, password and index name of your Elasticserch at line 12 of do.sh.
 <pre>
 # ./do.sh
 </pre>
 
-Pagination (dump from Elasticsearch).
 <pre>
-# ./pagination --host=http://USERNAME:PASSWORD@X.X.X.X:9200 --index=INDEX_NAME_"${date}`
+12: ./pagination --host=http://USERNAME:PASSWORD@X.X.X.X:9200 --index=INDEX_NAME_"${date}`
 </pre>
 
 1. [do.sh] Building binaries.
