@@ -1,6 +1,12 @@
 # nii-socs-elastic-pipe
 
 <pre>
+git submodule update --init
+</pre>
+
+Building binaries.
+
+<pre>
 make clean
 make
 
