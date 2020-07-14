@@ -5,11 +5,28 @@
 <li> discernCPU: traffic discrinimation tool (ingoing/outgoing) by IP address<br>
 </ul>
 
+Pagination (dump from Elasticsearch).
 <pre>
-git submodule update --init
+# ./pagination --host=http://USERNAME:PASSWORD@X.X.X.X:9200 --index=INDEX_NAME_"${date}`
 </pre>
 
-Building binaries.
+Traffic discrimination.
+<pre>
+# ./discernCPU 20200710 list-sample
+</pre>
+
+You can use script (do.sh). 
+
+Traffic discrimination.
+<pre>
+# ./do.sh
+</pre>
+ 
+1. Building binaries.
+
+<pre>
+# git submodule update --init
+</pre>
 
 <pre>
 (do.sh) make clean
@@ -21,7 +38,7 @@ Building binaries.
 (do.sh) cd ..
 </pre>
 
-Pagination (dump) with scroll API. 
+2. Pagination (dump) with scroll API. 
 
 <pre>
 (do.sh) rm -rf dump.txt
@@ -35,7 +52,7 @@ Pagination (dump) with scroll API.
 (do.sh) cp dump.txt dump.txt.${date}
 </pre>
 
-Splitting dump.
+3. Splitting dump.
 
 <pre>
 (do.sh) date=$(date -d '1 day ago' "+%Y%m%d")
@@ -59,7 +76,7 @@ Splitting dump.
 (do.sh) rm -rf dump.txt
 </pre>
 
-Traffic discrimination (ingoing/outgoing).
+4. Traffic discrimination (ingoing/outgoing).
 
 <pre>
 (do.sh) ./discernCPU $date list-sample
