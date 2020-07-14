@@ -56,7 +56,7 @@ Splitting dump.
 (do.sh)     rm -rf ${line}
 (do.sh) done < list
 
-(do.sh)rm -rf dump.txt
+(do.sh) rm -rf dump.txt
 </pre>
 
 Traffic discrimination (ingoing/outgoing).
