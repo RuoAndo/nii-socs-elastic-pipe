@@ -2,7 +2,7 @@
 
 <ul>
 <li> pagination: dump tool for Elasticsearch<br>
-<li> discernCPU: traffic discrinimation tool by IP address<br>
+<li> discernCPU: traffic discrinimation tool (ingoing/outgoing) by IP address<br>
 </ul>
 
 <pre>
