@@ -12,58 +12,57 @@ git submodule update --init
 Building binaries.
 
 <pre>
-make clean
-make
+(do.sh) make clean
+(do.sh) make
 
-cd src
-./build.sh discernCPU 
-mv discernCPU ../
-cd ..
-
+(do.sh) cd src
+(do.sh) ./build.sh discernCPU 
+(do.sh) mv discernCPU ../
+(do.sh)cd ..
 </pre>
 
 Pagination (dump) with scroll API. 
 
 <pre>
-rm -rf dump.txt
+(do.sh)rm -rf dump.txt
 
-date=$(date -d '1 day ago' "+%Y.%m.%d")
-str=`echo "time ./pagination --host=http://USERNAME:PASSWORD@X.X.X.X:9200 --index=INDEX_NAME_"${date}`
-echo $str
-eval $str
+(do.sh)date=$(date -d '1 day ago' "+%Y.%m.%d")
+(do.sh)str=`echo "time ./pagination --host=http://USERNAME:PASSWORD@X.X.X.X:9200 --index=INDEX_NAME_"${date}`
+(do.sh)echo $str
+(do.sh)eval $str
 
-echo "copying..."
-cp dump.txt dump.txt.${date}
+(do.sh)echo "copying..."
+(do.sh)cp dump.txt dump.txt.${date}
 </pre>
 
 Splitting dump.
 
 <pre>
-date=$(date -d '1 day ago' "+%Y%m%d")
-mkdir $date
+(do.sh)date=$(date -d '1 day ago' "+%Y%m%d")
+(do.sh)mkdir $date
 
-echo "spliting..."
-split -l 2500000 dump.txt 
+(do.sh)echo "spliting..."
+(do.sh)split -l 2500000 dump.txt 
 
-ls x* > list
+(do.sh)ls x* > list
 
-while read line; do
-    echo ${line}
+(do.sh)while read line; do
+(do.sh)    echo ${line}
 
-    cat header > ${line}.h
-    cat ${line} >> ${line}.h
+(do.sh)    cat header > ${line}.h
+(do.sh)    cat ${line} >> ${line}.h
 
-    mv ${line}.h ./${date}/
-    rm -rf ${line}
-done < list
+(do.sh)    mv ${line}.h ./${date}/
+(do.sh)    rm -rf ${line}
+(do.sh)done < list
 
-rm -rf dump.txt
+(do.sh)rm -rf dump.txt
 </pre>
 
 Traffic discrimination (ingoing/outgoing).
 
 <pre>
-time ./discernCPU $date list-sample
+(do.sh)./discernCPU $date list-sample
 </pre>
 
 <pre>
