@@ -1,7 +1,9 @@
 # nii-socs-elastic-pipe
 
-pagination: dump tool for Elasticsearch<br>
-discernCPU: traffic discrinimation tool by IP address<br>
+<ul>
+<li> pagination: dump tool for Elasticsearch<br>
+<li> discernCPU: traffic discrinimation tool by IP address<br>
+</ul>
 
 <pre>
 git submodule update --init
