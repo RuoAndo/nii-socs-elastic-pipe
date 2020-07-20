@@ -138,7 +138,7 @@ Note 2: data discription:
 </pre>
 
 <pre>
-- 1  capture_time 
+  - 1  capture_time 
   - 2  generated_time
   - 3  start_time
   - 4  elapsed_time
