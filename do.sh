@@ -2,8 +2,10 @@ make clean
 make
 
 cd src
-./build.sh discernCPU 
+./build.sh discernCPU
+./buildCPU.sh discernPort
 mv discernCPU ../
+mv discernPort ../
 cd ..
 
 rm -rf dump.txt
