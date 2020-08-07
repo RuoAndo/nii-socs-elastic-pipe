@@ -213,7 +213,7 @@ int traverse_file(char* filename, char* filelist_name, int thread_id, int portNo
       netmask = atoi(rec[1].c_str());
 	    
       std::cout << "[" << now_str() << "]" << "threadID:" << thread_id << ":" << list_file << ":" << addr_counter << "(" << list_data.size() << "):"
-		<< argIP << "/" << netmask << ":" << filename << ":" << ingress_counter_global << ":" << egress_counter_global
+		<< argIP << "/" << netmask << ":" << "filteredPortNo:" << portNo << ":" << filename << ":" << ingress_counter_global << ":" << egress_counter_global
 		<< ":" << miss_counter << std::endl;
 	    
       char del2 = '.';
@@ -653,7 +653,7 @@ int main(int argc, char* argv[]) {
         // targ[i].srchstr = argv[1];
         targ[i].dirname = argv[1];
 	targ[i].filelist_name = argv[2];
-	targ[i].portNo = argv[3];
+	targ[i].portNo = atoi(argv[3]);
         targ[i].filenum = 0;
         targ[i].cpuid = i%cpu_num;
     }
