@@ -180,5 +180,5 @@ Usage: ./discernIPaddr [DIR] [LIST-NAME] [srcIP_rowNo] [destIP_rowNo]
 
 <pre>
 [0]        [1]            [20]                    [27]
-timestamp, protocol, ... , X.X.X.X (destIP), ... , Y.Y.Y.Y (srcIP)
+timestamp, protocol, ... , X.X.X.X (srcIP), ... , Y.Y.Y.Y (destIP)
 </pre>
