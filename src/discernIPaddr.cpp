@@ -83,8 +83,8 @@ typedef struct _thread_arg {
     int cpuid;
     int id;
     queue_t* q;
-    int srcIP_colNo;
-    int destIP_colNo;  
+    int srcIP_rowNo;
+    int destIP_rowNo;  
     char* srchstr;
     char* dirname;
     char* filelist_name;
@@ -154,7 +154,7 @@ bool get_cpu_times(size_t &idle_time, size_t &total_time) {
 }
 */
 
-int traverse_file(char* filename, char* filelist_name, int thread_id, int srcIP_colNo, int destIP_colNo) {
+int traverse_file(char* filename, char* filelist_name, int thread_id, int srcIP_rowNo, int destIP_rowNo) {
 
 
   int counter = 0;
@@ -239,8 +239,8 @@ int traverse_file(char* filename, char* filelist_name, int thread_id, int srcIP_
 	    continue;
 	  }
    
-	std::string srcIP = rec2[srcIP_colNo];
-	std::string destIP = rec2[destIP_colNo];
+	std::string srcIP = rec2[srcIP_rowNo];
+	std::string destIP = rec2[destIP_rowNo];
 	
 	for(size_t c = srcIP.find_first_of("\""); c != string::npos; c = c = srcIP.find_first_of("\"")){
 	  srcIP.erase(c,1);
@@ -534,8 +534,8 @@ void worker_func(thread_arg_t* arg) {
     char* srchstr = arg->srchstr;
 
     int thread_id = arg->id;
-    int srcIP_colNo = arg->srcIP_colNo;
-    int destIP_colNo = arg->destIP_colNo;
+    int srcIP_rowNo = arg->srcIP_rowNo;
+    int destIP_rowNo = arg->destIP_rowNo;
     
     char* filelist_name = arg->filelist_name;
     
@@ -556,7 +556,7 @@ void worker_func(thread_arg_t* arg) {
         if (strncmp(fname, END_MARK_FNAME, END_MARK_FLENGTH + 1) == 0)
             break;
 
-        n = traverse_file(fname, filelist_name, thread_id, srcIP_colNo, destIP_colNo);
+        n = traverse_file(fname, filelist_name, thread_id, srcIP_rowNo, destIP_rowNo);
         pthread_mutex_lock(&result.mutex);
 
         if (n > result.num) {
@@ -579,7 +579,7 @@ void worker_func(thread_arg_t* arg) {
         if (strncmp(fname, END_MARK_FNAME, END_MARK_FLENGTH + 1) == 0)
             break;
 
-        n = traverse_file(fname, filelist_name, thread_id, srcIP_colNo, destIP_colNo);
+        n = traverse_file(fname, filelist_name, thread_id, srcIP_rowNo, destIP_rowNo);
 
 	/*
         if (n > my_result_num) {
@@ -625,7 +625,7 @@ int main(int argc, char* argv[]) {
     
 
     if (argc != 5) {
-        printf("Usage: ./discernIPaddr [DIR] [LIST-NAME] [srcIP_colNo] [destIP_colNo] \n"); return 0;
+        printf("Usage: ./discernIPaddr [DIR] [LIST-NAME] [srcIP_rowNo] [destIP_rowNo] \n"); return 0;
     }
 
     
@@ -638,8 +638,8 @@ int main(int argc, char* argv[]) {
         // targ[i].srchstr = argv[1];
         targ[i].dirname = argv[1];
 	targ[i].filelist_name = argv[2];
-	targ[i].srcIP_colNo = atoi(argv[3]);
-	targ[i].destIP_colNo = atoi(argv[4]);
+	targ[i].srcIP_rowNo = atoi(argv[3]);
+	targ[i].destIP_rowNo = atoi(argv[4]);
         targ[i].filenum = 0;
         targ[i].cpuid = i%cpu_num;
     }

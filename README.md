@@ -174,7 +174,7 @@ port filter.
 
 IPaddr filter.
 <pre>
-Usage: ./discernIPaddr [DIR] [LIST-NAME] [srcIP_colNo] [destIP_colNo]  
+Usage: ./discernIPaddr [DIR] [LIST-NAME] [srcIP_rowNo] [destIP_rowNo]  
 # ./discernIPaddr 20200811 list-sample 27 20
 </pre>
 
