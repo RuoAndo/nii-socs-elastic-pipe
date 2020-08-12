@@ -171,3 +171,14 @@ port filter.
 <pre>
 # ./discernPort [DATE_DIR] [list-sample] [PortNo]
 </pre>
+
+IPaddr filter.
+<pre>
+Usage: ./discernIPaddr [DIR] [LIST-NAME] [srcIP_colNo] [destIP_colNo]  
+# ./discernIPaddr 20200811 list-sample 27 20
+</pre>
+
+<pre>
+[0]        [1]            [20]                    [27]
+timestamp, protocol, ... , X.X.X.X (destIP), ... , Y.Y.Y.Y (srcIP)
+</pre>
