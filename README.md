@@ -183,8 +183,7 @@ Usage: ./discernIPaddr [DIR] [LIST-NAME] [srcIP_rowNo] [destIP_rowNo]
 timestamp, protocol, ... , X.X.X.X (srcIP), ... , Y.Y.Y.Y (destIP)
 </pre>
 
-<a name="singleIP"></a>
-singleIP filter.
+<a name="singleIP">singleIP filter.</a>
 <pre>
 # ./buildCPU.sh singleIP                                                                                                                                          
 # ./singleIP 
