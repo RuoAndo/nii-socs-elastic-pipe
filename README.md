@@ -190,3 +190,12 @@ singleIP filter.
 # ./singleIP 
 Usage: ./singleIP [IPAddr] [LIST_FILE_NAME] 
 </pre>
+
+<pre>
+# cat list-sample
+8.8.8.0,24
+# ./singleIP 8.8.8.1 list-sample                                                                                                                             
+HIT: 8.8.8.1 <- 8.8.8.0/24
+# ./singleIP 8.8.8.3 list-sample
+HIT: 8.8.8.3 <- 8.8.8.0/24
+</pre>
