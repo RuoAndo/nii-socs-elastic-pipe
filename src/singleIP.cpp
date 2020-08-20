@@ -123,7 +123,8 @@ int traverse_file(char* IPAddr, char* filelist_name) {
       std::string argIPstring;
       
       netmask = atoi(rec[1].c_str());
-
+      // cout << "netmask:" << netmask << endl;
+      
       /*
       std::cout << "[" << now_str() << "]" << "threadID:" << thread_id << ":" << list_file << ":" << addr_counter << "(" << list_data.size() << "):"
 		<< argIP << "/" << netmask << ":" << filename << ":" << ingress_counter_global << ":" << egress_counter_global
@@ -141,7 +142,8 @@ int traverse_file(char* IPAddr, char* filelist_name) {
       }
 	    
       std::string srcIP = string(IPAddr);
-
+      // cout << srcIP << endl;
+      
       for(size_t c = srcIP.find_first_of("\""); c != string::npos; c = c = srcIP.find_first_of("\"")){
 	srcIP.erase(c,1);
       }
@@ -149,19 +151,28 @@ int traverse_file(char* IPAddr, char* filelist_name) {
       std::string sessionIPstring;
       for (const auto subStr : split_string_2(srcIP, del2)) {
 	unsigned long ipaddr_src;
-	ipaddr_src = atol(subStr.c_str());
+	ipaddr_src = atoi(subStr.c_str());
+	// cout << ipaddr_src << endl;
 	std::bitset<8> trans =  std::bitset<8>(ipaddr_src);
+	// cout << trans << endl;
 	std::string trans_string = trans.to_string();
 	sessionIPstring = sessionIPstring + trans_string;
+	// cout << sessionIPstring << endl;
       }
 		
       std::bitset<32> bit_argIP(argIPstring);
       std::bitset<32> bit_sessionIP(sessionIPstring);
 	
       std::bitset<32> trans2(0xFFFFFFFF);
-      trans2 <<= netmask;
+      trans2 <<= (32 - netmask);
       bit_sessionIP &= trans2;
-	
+
+      /*
+      cout << trans2 << endl;
+      cout << bit_sessionIP << endl;
+      cout << bit_argIP << endl;
+      */
+      
       if(bit_sessionIP == bit_argIP)
 	{
 	  cout << "HIT: " << srcIP << " <- " << rec[0] << "/" << rec[1] << endl;
@@ -181,7 +192,11 @@ int traverse_file(char* IPAddr, char* filelist_name) {
 int main(int argc, char* argv[]) {
 
 
-  traverse_file(argv[1], argv[2]); 
+    if (argc != 3) {
+        printf("Usage: ./singleIP [IPAddr] [LIST_FILE_NAME] \n"); return 0;
+    }
+  
+    traverse_file(argv[1], argv[2]); 
   
     return 0;
 }
