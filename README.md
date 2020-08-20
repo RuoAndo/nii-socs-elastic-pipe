@@ -188,7 +188,7 @@ timestamp, protocol, ... , X.X.X.X (srcIP), ... , Y.Y.Y.Y (destIP)
 ## singleIP
 single IP address finder.
 <pre>
-# ./buildCPU.sh singleIP                                                                                                                                          
+# ./build.sh singleIP                                                                                                                                          
 # ./singleIP 
 Usage: ./singleIP [IPAddr] [LIST_FILE_NAME] 
 </pre>
