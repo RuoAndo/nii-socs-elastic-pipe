@@ -6,5 +6,7 @@ RMDATE=`date --date '5 day ago' +%Y%m%d`
 echo $RMDATE
 rm -rf $RMDATE
 
-
+RMDATE=`date --date '5 day ago' +%Y.%m.%d`
+echo $RMDATE
+rm -rf dump.txt.${RMDATE}
 
