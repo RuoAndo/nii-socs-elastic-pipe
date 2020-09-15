@@ -12,6 +12,11 @@
 #include "../vendor/rapidjson/include/rapidjson/filewritestream.h"
 #include "../vendor/rapidjson/include/rapidjson/writer.h"
 
+#include <boost/date_time/posix_time/posix_time.hpp>
+#include <boost/filesystem/path.hpp>
+#include <boost/filesystem/operations.hpp>
+#include <boost/filesystem.hpp>
+
 #define DEFAULT_SIZE   5000
 #define DEFAULT_SLICES 64
 #define WRITE_BUF_SIZE 65536
@@ -47,6 +52,27 @@ struct thread_container
     thread_state state;
     std::thread  thread;
 };
+
+std::string now_str()
+{
+  // Get current time from the clock, using microseconds resolution
+  const boost::posix_time::ptime now =
+    boost::posix_time::microsec_clock::local_time();
+
+  const boost::posix_time::time_duration td = now.time_of_day();
+
+  const long hours        = td.hours();
+  const long minutes      = td.minutes();
+  const long seconds      = td.seconds();
+  const long milliseconds = td.total_milliseconds() -
+    ((hours * 3600 + minutes * 60 + seconds) * 1000);
+
+  char buf[40];
+  sprintf(buf, "%02ld:%02ld:%02ld.%03ld",
+	  hours, minutes, seconds, milliseconds);
+
+  return buf;
+}
 
 size_t write_data(
     void   * buffer,
@@ -135,6 +161,8 @@ void write_document(
     auto& allocator               = document.GetAllocator();
     auto  writer                  = rapidjson::Writer<rapidjson::FileWriteStream>(stream);
 
+    static int write_counter = 0; 
+    
     for (rapidjson::Value const& hit : hits)
     {
         auto meta_index      = rapidjson::Value(rapidjson::kObjectType);
@@ -224,6 +252,11 @@ void write_document(
         stream.Put('\n');
         stream.Flush();
         writer.Reset(stream);
+
+	if(write_counter % 1000000 == 0)
+	  std::cout << "[" << now_str() << "]:" << write_counter << " retrieved." << std::endl; 
+	    
+	write_counter++;
        
     }
 
